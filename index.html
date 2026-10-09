@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sakhi Studio – Custom dresses, cards, crafts & 3D prints</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--plum:#3b1f4a;--gold:#f2a93b;--blush:#fbe7e1;--ivory:#fff9f3;--teal:#1f7a74;--ink:#2a1833;--card:#fff;--line:#ecd9d2;
+ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ivory:#1d1224;--blush:#2b1a35;--card:#2a1a34;--ink:#f6e9ef;--line:#4a3358;--plum:#e9c9ff}}
+:root[data-theme="dark"]{--ivory:#1d1224;--blush:#2b1a35;--card:#2a1a34;--ink:#f6e9ef;--line:#4a3358;--plum:#e9c9ff}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;line-height:1.6}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.15;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ivory);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px;flex-wrap:wrap}
+.logo{font-family:'Fraunces',serif;font-weight:800;font-size:1.3rem;text-decoration:none}
+nav{display:flex;gap:16px;flex-wrap:wrap;font-size:.95rem}
+nav a{text-decoration:none;font-weight:500}nav a:hover{text-decoration:underline}
+.hero{background:#3b1f4a;color:#fff9f3;padding:64px 0 72px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+.hero h1{font-size:clamp(2.2rem,6vw,3.8rem);font-weight:800}
+.hero p{max-width:46ch;font-size:1.1rem;opacity:.92;margin:18px 0 26px}
+.btn{display:inline-block;background:var(--gold);color:#2a1833;font-weight:700;padding:12px 22px;border-radius:999px;text-decoration:none;border:0;cursor:pointer;font:inherit;font-weight:700}
+.btn.alt{background:transparent;color:inherit;border:2px solid currentColor;margin-left:8px}
+.stack{position:relative;height:280px}
+.stack span{position:absolute;display:grid;place-items:center;font-size:3.4rem;border-radius:28px;width:130px;height:130px;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.stack span:nth-child(1){background:#f2a93b;left:5%;top:5%;transform:rotate(-8deg)}
+.stack span:nth-child(2){background:#fbe7e1;right:8%;top:0;transform:rotate(7deg);width:150px;height:150px;border-radius:50%}
+.stack span:nth-child(3){background:#1f7a74;left:22%;bottom:0;transform:rotate(5deg);width:160px;height:120px;border-radius:60px 14px 60px 14px}
+.stack span:nth-child(4){background:#e9c9ff;right:4%;bottom:6%;transform:rotate(-6deg)}
+section{padding:60px 0}
+section h2{font-size:clamp(1.7rem,4vw,2.4rem);margin-bottom:8px}
+.sub{max-width:56ch;opacity:.8;margin:0 0 28px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tab{padding:9px 18px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-weight:500;cursor:pointer}
+.tab[aria-pressed="true"]{background:#3b1f4a;color:#fff9f3;border-color:#3b1f4a}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.tile{height:150px;display:grid;place-items:center;font-size:3.4rem}
+.item .body{padding:14px 16px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.item h3{font-size:1.1rem}
+.item small{opacity:.75}
+.price{font-weight:700;color:var(--teal);margin-top:auto}
+.item .btn{background:#1f7a74;color:#fff;padding:9px 16px;text-align:center;font-size:.92rem}
+.band{background:var(--blush)}
+form{display:grid;gap:14px;max-width:560px}
+label{display:grid;gap:5px;font-weight:500}
+input,select,textarea{font:inherit;padding:11px 12px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);width:100%}
+.founders{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.founders div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}
+.founders .av{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-size:1.6rem;margin-bottom:10px}
+footer{background:#3b1f4a;color:#fff9f3;padding:32px 0;text-align:center}
+footer a{color:var(--gold)}
+@media(max-width:760px){.hero .wrap{grid-template-columns:1fr}.stack{height:220px}.stack span{transform:scale(.8)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+ <a class="logo" href="#top">Sakhi Studio</a>
+ <nav aria-label="Main"><a href="#shop">Shop</a><a href="#custom">Custom order</a><a href="#about">About us</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<main id="top">
+<div class="hero"><div class="wrap">
+ <div>
+  <h1>Made by three women. Made just for you.</h1>
+  <p>Custom dresses, birthday cards, handmade crafts, accessories and 3D-printed gifts. Tell us what you imagine and we make it.</p>
+  <a class="btn" href="#custom">Start a custom order</a><a class="btn alt" href="#shop">Browse the shop</a>
+ </div>
+ <div class="stack" aria-hidden="true"><span>👗</span><span>🎂</span><span>🖨️</span><span>💍</span></div>
+</div></div>
+
+<section id="shop"><div class="wrap">
+ <h2>Shop by section</h2>
+ <p class="sub">Pick a section, then tap "Order on WhatsApp" on anything you like.</p>
+ <div class="tabs" id="tabs" role="group" aria-label="Sections"></div>
+ <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="band" id="custom"><div class="wrap">
+ <h2>Custom order</h2>
+ <p class="sub">Fill this in and it opens WhatsApp with your request ready to send. We reply with a price and delivery date.</p>
+ <form id="orderForm">
+  <label>Your name<input id="fName" required autocomplete="name"></label>
+  <label>What do you want?
+   <select id="fType"><option>Customised Dress</option><option>Birthday Card</option><option>3D-Printed Item</option><option>Art & Craft</option><option>Accessories</option></select>
+  </label>
+  <label>Describe it (size, colour, name or message to add, date needed)<textarea id="fDetails" rows="4" required></textarea></label>
+  <button class="btn" type="submit">Send on WhatsApp</button>
+ </form>
+</div></section>
+
+<section id="about"><div class="wrap">
+ <h2>About us</h2>
+ <p class="sub">We are a family business of three women who wanted to earn on our own terms, from home, around busy lives. Every order is handled by us, start to finish.</p>
+ <div class="founders">
+  <div><div class="av" style="background:#f2a93b">🧵</div><a href="https://www.instagram.com/sewing.with.designermom?exln=MXYwY3VkbmpkZXZqMQ=="><h3>Pyoli Srivastava</h3></a><p>Designs and stitches the custom dresses. Add her story here.</p></div>
+  <div><div class="av" style="background:#fbe7e1">🎨</div><a href="https://www.instagram.com/_akankshadiaries_?xtok=MW94b2NkNXpqM2xqcQ=="><h3>Akanksha Srivastava</h3></a><p>Makes the cards, art and crafts. Add her story here.</p></div>
+  <div><div class="av" style="background:#e9c9ff">🖨️</div><a href="https://www.instagram.com/the_insomniac_panda_?rpxt=aWI0YXFrMTdyYnh1"><h3>Ishita Srivastava</h3></a><p>Runs the 3D printer and accessories. Add her story here.</p></div>
+ </div>
+</div></section>
+</main>
+
+<footer id="contact"><div class="wrap">
+ <p><strong>Sakhi Studio</strong> · Ghaziabad, Uttar Pradesh</p>
+ <p>WhatsApp: <a id="waLink" href="#">+91 XXXXX XXXXX</a> · Instagram: <a href="#">@yourhandle</a></p>
+ <p style="opacity:.7;font-size:.85rem">Made with love by three sisters.</p>
+</div></footer>
+
+<script>
+var PHONE="91XXXXXXXXXX"; // replace with your WhatsApp number: country code + number, no + or spaces
+var SECTIONS={
+ "3D Printing":{c:"#e9c9ff",items:[["Name keychain","🔑","Your name in 3D, any colour","₹149"],["Custom phone stand","📱","Add a name or logo","₹249"],["Photo lithophane lamp","💡","Your photo glows when lit","₹899"],["Desk organiser","🗂️","Made to your size","₹399"]]},
+ "Art & Craft":{c:"#fbe7e1",items:[["Birthday card","🎂","Handmade, with your message","₹120"],["Pop-up card","💌","3D fold-out surprise","₹249"],["Resin coaster set","🎨","Set of 4, custom colours","₹499"],["Gift hamper box","🎁","Decorated and filled to order","₹799"]]},
+ "Accessories":{c:"#f2a93b",items:[["Beaded bracelet","📿","Name or lucky beads","₹199"],["Hair clips set","🎀","Set of 3, matching your outfit","₹179"],["Handmade earrings","💍","Light, colourful, one of a kind","₹249"],["Tote bag","👜","Hand-painted or printed","₹349"]]},
+ "Customised Dress":{c:"#bfe5df",items:[["Kurti stitched to size","👗","Choose fabric and neckline","From ₹799"],["Kids party frock","🧒","Made for birthdays","From ₹699"],["Matching mom & me set","👭","Two outfits, one design","From ₹1,499"],["Blouse and alterations","🪡","Fit and design changes","From ₹299"]]}
+};
+var cur="All";
+var tabs=document.getElementById("tabs"),grid=document.getElementById("grid");
+function wa(t){return "https://wa.me/"+PHONE+"?text="+encodeURIComponent(t)}
+function render(){
+ tabs.innerHTML="";
+ ["All"].concat(Object.keys(SECTIONS)).forEach(function(n){
+  var b=document.createElement("button");b.className="tab";b.textContent=n;
+  b.setAttribute("aria-pressed",n===cur);b.onclick=function(){cur=n;render()};tabs.appendChild(b);
+ });
+ grid.innerHTML="";
+ Object.keys(SECTIONS).forEach(function(s){
+  if(cur!=="All"&&cur!==s)return;
+  SECTIONS[s].items.forEach(function(i){
+   var d=document.createElement("article");d.className="item";
+   d.innerHTML='<div class="tile" style="background:'+SECTIONS[s].c+'">'+i[1]+'</div><div class="body"><small>'+s+'</small><h3>'+i[0]+'</h3><span>'+i[2]+'</span><span class="price">'+i[3]+'</span><a class="btn" target="_blank" rel="noopener" href="'+wa("Hi! I want to order: "+i[0]+" ("+s+")")+'">Order on WhatsApp</a></div>';
+   grid.appendChild(d);
+  });
+ });
+}
+render();
+document.getElementById("orderForm").onsubmit=function(e){
+ e.preventDefault();
+ var m="Hi! I am "+fName.value+". I want a custom order.\nType: "+fType.value+"\nDetails: "+fDetails.value;
+ window.open(wa(m),"_blank","noopener");
+};
+document.getElementById("waLink").href=wa("Hi! I found you on your website.");
+</script>
+</body>
+</html>
